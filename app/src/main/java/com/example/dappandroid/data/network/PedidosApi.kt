@@ -21,6 +21,9 @@ interface PedidosApi {
 
 
 
+//    @GET("restful/services/depotapp.Pedidos/actions/listAll/invoke/")
+//    suspend fun getPedidos() : Response<List<PedidosResponseItem>>
+
     @Headers(
         "Authorization: Basic c3ZlbjpwYXNz",
         "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
@@ -72,6 +75,7 @@ interface PedidosApi {
                 .build()
                 .create(PedidosApi::class.java)
         }
+
     }
 
 
