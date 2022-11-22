@@ -4,6 +4,6 @@ import com.example.dappandroid.data.network.PedidosApi
 
 class PedidosRepository (private val api: PedidosApi) : SafeApiRequest() {
 
-    suspend fun getPedidos() = safeApiCall { api.getPedidos() }
+    suspend fun getPedidos() = apiRequest { api.getPedidos() }
 
 }
