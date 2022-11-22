@@ -38,6 +38,8 @@ class LoginFragment : Fragment() {
        val btnIngresar = view.findViewById<Button>(R.id.btnIngresar)
 
         btnIngresar.setOnClickListener{
+
+
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 

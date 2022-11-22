@@ -38,16 +38,16 @@ class DetalleFragment : Fragment() {
 
         factory = DetalleViewModelFactory(repository)
         viewModel = ViewModelProvider(this, factory)[DetalleViewModel::class.java]
-        viewModel.getArticulos()
-        viewModel.articulos.observe(viewLifecycleOwner, Observer { articulos ->
-
-            recycler.also {
-                it?.layoutManager = LinearLayoutManager(requireContext())
-                it?.setHasFixedSize(true)
-                it?.adapter = DetalleAdapter(articulos)
-            }
-
-        })
+//        viewModel.getArticulos()
+//        viewModel.articulos.observe(viewLifecycleOwner, Observer { articulos ->
+//
+//            recycler.also {
+//                it?.layoutManager = LinearLayoutManager(requireContext())
+//                it?.setHasFixedSize(true)
+//                it?.adapter = DetalleAdapter(articulos)
+//            }
+//
+//        })
 
     }
 }

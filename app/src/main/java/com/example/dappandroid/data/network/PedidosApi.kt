@@ -4,11 +4,14 @@ import com.example.dappandroid.data.models.ArticuloItem
 import com.example.dappandroid.data.models.ArticuloX
 import com.example.dappandroid.data.models.PedidosResponseItem
 import com.example.dappandroid.data.models.detalle.Value
+import com.example.dappandroid.data.models.user.User
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Field
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.POST
 
 interface PedidosApi {
 
@@ -29,7 +32,17 @@ interface PedidosApi {
         "Authorization: Basic c3ZlbjpwYXNz",
         "Accept: application/json;profile=urn:org.restfulobjects:repr-types/object-collection")
     @GET("restful/objects/depotapp.Pedido/1/collections/items")
-    suspend fun getArticulos() : Response<List<Value>>
+    suspend fun getArticulos() : Response<List<ArticuloX>>
+
+
+    @Headers(
+        "Authorization: Basic c3ZlbjpwYXNz",
+        "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
+    @POST("restful/services/simple.Usuarios/actions/userValidation/invoke")
+    suspend fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ) : User
 
 
 

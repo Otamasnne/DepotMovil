@@ -3,6 +3,7 @@ package com.example.dappandroid.ui.detalle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.dappandroid.data.models.ArticuloX
 import com.example.dappandroid.data.models.detalle.Value
 import com.example.dappandroid.data.repositories.DetalleRepository
 import com.example.dappandroid.util.Coroutines
@@ -14,9 +15,9 @@ class DetalleViewModel (
 
         private lateinit var job: Job
 
-        private val _articulos = MutableLiveData<List<Value>>()
+        private val _articulos = MutableLiveData<List<ArticuloX>>()
 
-        val articulos : LiveData<List<Value>>
+        val articulos : LiveData<List<ArticuloX>>
             get() = _articulos;
 
         fun getArticulos() {
