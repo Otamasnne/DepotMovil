@@ -16,8 +16,9 @@ import com.example.dappandroid.R
 
 class LoginFragment : Fragment() {
 
-//    private lateinit var viewModel: LoginViewModel
-    private val viewModel: LoginViewModel by viewModels()
+    private lateinit var viewModel: LoginViewModel
+    private  lateinit var factory: LoginViewModelFactory
+    //private val viewModel: LoginViewModel by viewModels()
 
 
 
