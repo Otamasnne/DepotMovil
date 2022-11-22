@@ -1,11 +1,15 @@
 package com.example.dappandroid.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.TargetApi
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dappandroid.R
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -19,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
+        disableAutofill();
 
 //        val repository = PedidosRepository(PedidosApi())
 
@@ -34,5 +39,10 @@ class MainActivity : AppCompatActivity() {
 //            .findFragmentById(R.id.nav_host_fragment)
 
 
+    }
+
+    @TargetApi(Build.VERSION_CODES.O)
+    private fun disableAutofill() {
+        window.decorView.importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO_EXCLUDE_DESCENDANTS
     }
 }

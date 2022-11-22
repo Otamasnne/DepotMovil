@@ -1,8 +1,11 @@
 package com.example.dappandroid.data.repositories
 
+import com.example.dappandroid.data.models.user.User
 import com.example.dappandroid.data.network.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.internal.notify
+import retrofit2.Call
 import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
@@ -28,6 +31,10 @@ abstract class SafeApiRequest {
         }
     }
 
+//    suspend fun <T: Any> apiCall(call: suspend () -> Call<T>) : T {
+//        val calll = call.invoke()
+//        if (calll)
+//    }
 
     suspend fun <T: Any> apiRequest(call: suspend () -> Response<T>) : T {
 
