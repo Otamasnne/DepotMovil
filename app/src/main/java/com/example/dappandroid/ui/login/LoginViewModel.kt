@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dappandroid.data.models.user.User
 import com.example.dappandroid.data.models.user.UserBody
+import com.example.dappandroid.data.models.user.userDos
 import com.example.dappandroid.data.network.Resource
 import com.example.dappandroid.data.repositories.LoginRepository
 import com.example.dappandroid.util.Coroutines
@@ -36,7 +37,7 @@ class LoginViewModel (
 //
 //    }
 
-    fun login(userData: UserBody) {
+    fun login(userData: userDos) {
 
         job = Coroutines.ioThenMain(
             { repository.login(userData)},

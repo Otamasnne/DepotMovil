@@ -7,6 +7,7 @@ import com.example.dappandroid.data.models.PedidosResponseItem
 import com.example.dappandroid.data.models.detalle.Value
 import com.example.dappandroid.data.models.user.User
 import com.example.dappandroid.data.models.user.UserBody
+import com.example.dappandroid.data.models.user.userDos
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.json.JSONObject
@@ -58,11 +59,11 @@ interface PedidosApi {
     @Headers(
         "Authorization: Basic c3ZlbjpwYXNz",
         "Content-Type: application/json",
-        "Content-Length: <calculated when request is sent>",
-        "Host: <calculated when request is sent>",
+        //"Content-Length: <calculated when request is sent>",
+        //"Host: <calculated when request is sent>",
         "Accept: application/json;profile=urn:org.apache.isis/v2;suppress=all")
-    @POST("restful/services/simple.Usuarios/actions/userValidation/invoke")
-    suspend fun login(@Body userData: UserBody) : Response<User>
+    @POST("restful/services/depotapp.Usuarios/actions/userValidation/invoke")
+    suspend fun login(@Body userData: userDos) : User
 
 
 

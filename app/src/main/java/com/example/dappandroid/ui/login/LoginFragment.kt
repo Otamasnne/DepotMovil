@@ -20,8 +20,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.example.dappandroid.R
-import com.example.dappandroid.data.models.user.User
-import com.example.dappandroid.data.models.user.UserBody
+import com.example.dappandroid.data.models.user.*
 import com.example.dappandroid.data.network.PedidosApi
 import com.example.dappandroid.data.network.Resource
 import com.example.dappandroid.data.repositories.LoginRepository
@@ -69,7 +68,15 @@ class LoginFragment : Fragment() {
 //            }
 //        })
 
+        viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
+            if(it.password contentEquals "1234" ){
+                //Toast.makeText(requireContext(), "casi", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            }else{
+                Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_LONG).show()
+            }
 
+        })
 
 
        val btnIngresar = view.findViewById<Button>(R.id.btnIngresar)
@@ -83,27 +90,25 @@ class LoginFragment : Fragment() {
 //            jsonObject.put("username", usernameFrom)
 //            jsonObject.put("password", passwordFrom)
 //
+            //val userData = UserBody (jsonObject)
 //            val jsonObjectString = jsonObject.toString()
 
-            val userData = UserBody (
-               username = usernameFrom,
-                password = passwordFrom
-            )
+//            val userData = UserBody (
+//               username = usernameFrom,
+//                password = passwordFrom
+//            )
+
+            val username = Username(usernameFrom)
+            val password = Password(passwordFrom)
+            val userData = userDos(password,username)
 
             //val userData = jsonObject
             viewModel.login(userData)
 
-            viewModel.loginResponse.observe(viewLifecycleOwner, Observer { loginResponse ->
-                if(loginResponse.password == "1234"){
-                    Toast.makeText(requireContext(), "casi", Toast.LENGTH_LONG).show()
-                }else{
-                    Toast.makeText(requireContext(), "Login Failure", Toast.LENGTH_LONG).show()
-                }
 
-            })
 //            Toast.makeText(requireContext(), usernameFrom, Toast.LENGTH_LONG).show()
 //            Toast.makeText(requireContext(), passwordFrom, Toast.LENGTH_LONG).show()
-            //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+
         }
 
 
